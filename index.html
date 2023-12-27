@@ -134,6 +134,26 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+
+        @media only screen and (max-width: 1920px) {
+        .container {
+            max-width: 600px; /* Ajuste conforme necessário para simular um tablet ou smartphone */
+            margin: 0 auto;   /* Centraliza a div na tela */
+            padding: 20px;
+            background-color: #4e2a48; /* Cor de fundo da div */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar a div */
+        }
+
+        .container header {
+            height: auto; /* Ajusta a altura do cabeçalho conforme o conteúdo */
+        }
+
+        .container header img {
+            max-height: none; /* Remove a altura máxima da imagem do cabeçalho */
+            border-radius: 0; /* Remove a borda arredondada da imagem */
+        }
+    }
     </style>
 </head>
 
@@ -147,10 +167,11 @@
 
     <header>
         <a name="inicio"></a>
-        <img src="img/Imagem Açaí Gelado.png" alt="Imagem Açaí Gelado">
+        <img src="Imagem Açaí Gelado.png" alt="Imagem Açaí Gelado">
         <h1 style="margin-top: 20px;">Açaí Delícia</h1>
     </header>
-
+    
+<div class="container">
     <section id="cardapio" class="cardapio">
    
         <!-- Descrição Geral do Açaí -->
@@ -207,7 +228,7 @@
                 </p>
                 <!-- Substitua o link abaixo pelo seu link de atendimento no WhatsApp -->
                 <a href="https://wa.me/22999894455" target="_blank">
-                    <img src="/img/Imagem Açaí Gelado.png" alt="Logo WhatsApp">
+                    <img src="logo_wp3.png" alt="Logo WhatsApp" style="width: 30px; height: 30px;" class="whatsapp-icon">
                     Pedido via WhatsApp
                 </a>
             </div>
@@ -225,7 +246,7 @@
     </section>
     
 
-    
+</div>
 </body>
   
 <script>
