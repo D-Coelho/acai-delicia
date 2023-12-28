@@ -102,39 +102,53 @@
             color: #ffd700; /* Cor de destaque do cardápio - amarelo ouro */
         }
 
-        .contato {
+        .pedido {
             background-color: #6d3956; /* Cor de fundo da box de contato - roxo médio escuro */
             border-radius: 10px;
             margin-top: 20px;
-            padding: 20px;
+            padding: 40px;
         }
 
-        .contato-form {
-            display: flex;
-            flex-direction: column;
+
+        .whatsapp-icon img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px; /* Adicionando margem direita para espaçamento */
         }
 
-        .contato-form label {
-            margin-bottom: 10px;
+        .icon-car {
+            width: 50px;
+            height: 25px;
+            margin-right: 10px;
         }
+    
+    /* Adicione estilos adicionais conforme necessário */
+    .pedido-container {
+        display: flex;
+        justify-content: space-between;        
+    }
 
-        .contato-form input,
-        .contato-form textarea {
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
+    .pedido-online-container,
+    .degustar-pessoalmente-container {
+        width: 100%; /* Ajuste a largura conforme necessário */
+        
+    }
 
-        .contato-form button {
-            padding: 10px;
-            background-color: #e76f95; /* Cor de destaque - rosa claro */
-            color: #ffffff; /* Cor do texto do botão - branco */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .pedido-online {
+        background-color: #6d3956;
+        padding: 0px;
+        border-radius: 0px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
 
+    .degustar-pessoalmente {
+        background-color: #6d3956;
+        padding: 0px;
+        border-radius: 0px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
 
         @media only screen and (max-width: 1920px) {
         .container {
@@ -214,33 +228,334 @@
     
 
 
-
-
-
-
-    <section id="pedido" class="contato">
+    <section id="pedido" class="pedido">
         <h2>Pedidos</h2>
         <div class="pedido-container">
-            <div class="pedido-online">
-                <h3>Faça seu pedido online</h3>
-                <p>
-                    Realize seu pedido através do WhatsApp e aproveite a praticidade de receber o açaí onde você estiver.
-                </p>
-                <!-- Substitua o link abaixo pelo seu link de atendimento no WhatsApp -->
-                <a href="https://wa.me/22999894455" target="_blank">
-                    <img src="logo_wp3.png" alt="Logo WhatsApp" style="width: 30px; height: 30px;" class="whatsapp-icon">
-                    Pedido via WhatsApp
-                </a>
+            <div class="pedido-online-container">
+                <div class="pedido-online">
+                    <h3>Faça seu pedido online</h3>
+                    <p>
+                        Peça seu açaí pelo WhatsApp e receba onde estiver.
+                    </p>
+                    <!-- Substitua o link abaixo pelo seu link de atendimento no WhatsApp -->
+                    <a href="https://wa.me/22999894455" target="_blank" class="whatsapp-icon">
+                        <img src="logo_wp3.png" alt="Logo WhatsApp">
+                        Pedido via WhatsApp
+                    </a>
+                </div>
             </div>
-            <div class="degustar-pessoalmente">
-                <h3>Venha degustar pessoalmente</h3>
-                <p>
-                    Visite nosso estabelecimento para uma experiência única. Confira o endereço abaixo e nos faça uma visita.
-                </p>
-                <!-- Substitua o endereço e o link do mapa conforme necessário -->
+            <div class="degustar-pessoalmente-container">
+                <div class="degustar-pessoalmente">
+                    <h3>Retire pessoalmente</h3>
+                    <p>
+                        Confira o endereço abaixo e faça-nos uma visita.
+                    </p>
+                    <!-- Substitua o endereço e o link do mapa conforme necessário -->
+                    
+                    <a href="https://www.google.com/maps?q=Rua+Vereador+Russani+Elias+José,+128,+Centro,+Nova+Iguaçu"
+                    target="_blank">
+                    <img src="icon_car.png" alt="Icon Car" class="icon-car">
+                    Ver no Mapa
+                </a>
                 <p>Endereço: Rua Vereador Russani Elias José, 128 - Centro, Nova Iguaçu</p>
-                <a href="https://www.google.com/maps?q=Rua+Vereador+Russani+Elias+José,+128,+Centro,+Nova+Iguaçu"
-                    target="_blank">Ver no Mapa</a>
+            </div>
+        </div>
+    </section>
+    
+
+</div>
+</body>
+  
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Seleciona todos os links da barra de navegação
+        var links = document.querySelectorAll("nav a");
+
+        // Adiciona um ouvinte de evento de clique a cada link
+        links.forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                event.preventDefault(); // Impede o comportamento padrão do link
+
+                // Obtém o alvo do link (o valor do atributo href)
+                var targetId = this.getAttribute("href").substring(1);
+
+                // Se o alvo for "inicio", role até o topo da página
+                if (targetId === "inicio") {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                } else {
+                    // Caso contrário, obtenha a posição do alvo e role suavemente até ele
+                    var targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    });
+</script>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaí Delícia - Cardápio Irresistível</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #4e2a48; /* Fundo do site - roxo escuro */
+            color: #ffffff; /* Cor do texto principal - branco */
+        }
+
+        header {
+            width: 100%;
+            height: 100vh;
+            background-color: #6a3d7a; /* Cor de fundo do cabeçalho - roxo médio */
+            display: flex;
+            flex-direction: column; /* Alteração para usar flex-direction: column */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        header .img-section,
+        header .text-section {
+            width: 100%;
+        }
+
+        header img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #6a3d7a; /* Cor de fundo da navegação - roxo médio */
+            color: #ffffff; /* Cor do texto da navegação - branco */
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #ffffff; /* Cor do texto da navegação - branco */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        .cardapio {
+            background-color: #6d3956; /* Cor de fundo do cardápio - roxo médio escuro */
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .titulo {
+            padding: 10px;
+            border-bottom: 0px solid #ddd; /* Linha separadora entre os itens */
+            position: relative;
+        }
+
+        .item-cardapio {
+            padding: 20px;
+            border-bottom: 1px solid #ddd; /* Linha separadora entre os itens */
+            position: relative;
+        }
+
+        .item-cardapio:last-child {
+            border-bottom: none; /* Remover borda inferior do último item */
+        }
+
+        .item-nome {
+            font-size: 1.5em;
+            color: #ffffff; /* Texto do cardápio - branco */
+        }
+
+        .item-descricao {
+            color: #ffffff; /* Texto do cardápio - branco */
+        }
+
+        .item-descricao {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            font-size: 1.5em;
+            color: #ffd700; /* Cor de destaque do cardápio - amarelo ouro */
+        }
+
+        .pedido {
+            background-color: #6d3956; /* Cor de fundo da box de contato - roxo médio escuro */
+            border-radius: 10px;
+            margin-top: 20px;
+            padding: 40px;
+        }
+
+
+        .whatsapp-icon img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px; /* Adicionando margem direita para espaçamento */
+        }
+
+        .icon-car {
+            width: 50px;
+            height: 25px;
+            margin-right: 10px;
+        }
+    
+    /* Adicione estilos adicionais conforme necessário */
+    .pedido-container {
+        display: flex;
+        justify-content: space-between;        
+    }
+
+    .pedido-online-container,
+    .degustar-pessoalmente-container {
+        width: 100%; /* Ajuste a largura conforme necessário */
+        
+    }
+
+    .pedido-online {
+        background-color: #6d3956;
+        padding: 0px;
+        border-radius: 0px;
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+
+    .degustar-pessoalmente {
+        background-color: #6d3956;
+        padding: 0px;
+        border-radius: 0px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+
+        @media only screen and (max-width: 1920px) {
+        .container {
+            max-width: 600px; /* Ajuste conforme necessário para simular um tablet ou smartphone */
+            margin: 0 auto;   /* Centraliza a div na tela */
+            padding: 20px;
+            background-color: #4e2a48; /* Cor de fundo da div */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar a div */
+        }
+
+        .container header {
+            height: auto; /* Ajusta a altura do cabeçalho conforme o conteúdo */
+        }
+
+        .container header img {
+            max-height: none; /* Remove a altura máxima da imagem do cabeçalho */
+            border-radius: 0; /* Remove a borda arredondada da imagem */
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#pedido">Pedidos</a>
+    </nav>
+    
+
+    <header>
+        <a name="inicio"></a>
+        <img src="Imagem Açaí Gelado.png" alt="Imagem Açaí Gelado">
+        <h1 style="margin-top: 20px;">Açaí Delícia</h1>
+    </header>
+    
+<div class="container">
+    <section id="cardapio" class="cardapio">
+   
+        <!-- Descrição Geral do Açaí -->
+        <div class="titulo">
+            <h3>Descrição Geral do Açaí:</h3>
+            <p class="item-cardapio"> Delicie-se com nossos açaís de alta qualidade, preparados com ingredientes frescos e saborosos. Acompanhados de irresistíveis coberturas, como paçoca, canudinho de chocolate, e uma variedade de frutas frescas. Uma explosão de sabores em cada colher!</p>
+            </class>
+        </div>
+    
+        <!-- Opções de Ml -->
+        <div class="titulo">
+            <h3>Escolha o Tamanho:</h3>
+            <div class="item-cardapio">
+                <div class="item-nome">100ml</div>
+                <div class="item-descricao">R$ 4,00</div>
+                
+            </div>
+            <div class="item-cardapio">
+                <div class="item-nome">200ml</div>
+                <div class="item-descricao">R$ 7,00</div>
+                
+            </div>
+            <div class="item-cardapio">
+                <div class="item-nome">400ml</div>
+                <div class="item-descricao">R$ 10,00</div>
+                
+            </div>
+            <div class="item-cardapio">
+                <div class="item-nome">500ml</div>
+                <div class="item-descricao">R$ 13,00</div>
+            
+            </div>
+            <div class="item-cardapio">
+                <div class="item-nome">770ml</div>
+                <div class="item-descricao">R$ 15,00</div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="pedido" class="pedido">
+        <h2>Pedidos</h2>
+        <div class="pedido-container">
+            <div class="pedido-online-container">
+                <div class="pedido-online">
+                    <h3>Faça seu pedido online</h3>
+                    <p>
+                        Peça seu açaí pelo WhatsApp e receba onde estiver.
+                    </p>
+                    <!-- Substitua o link abaixo pelo seu link de atendimento no WhatsApp -->
+                    <a href="https://wa.me/22999894455" target="_blank" class="whatsapp-icon">
+                        <img src="logo_wp3.png" alt="Logo WhatsApp">
+                        Pedido via WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="degustar-pessoalmente-container">
+                <div class="degustar-pessoalmente">
+                    <h3>Retire pessoalmente</h3>
+                    <p>
+                        Confira o endereço abaixo e faça-nos uma visita.
+                    </p>
+                    <!-- Substitua o endereço e o link do mapa conforme necessário -->
+                    
+                    <a href="https://www.google.com/maps?q=Rua+Vereador+Russani+Elias+José,+128,+Centro,+Nova+Iguaçu"
+                    target="_blank">
+                    <img src="icon_car.png" alt="Icon Car" class="icon-car">
+                    Ver no Mapa
+                </a>
+                <p>Endereço: Rua Vereador Russani Elias José, 128 - Centro, Nova Iguaçu</p>
             </div>
         </div>
     </section>
